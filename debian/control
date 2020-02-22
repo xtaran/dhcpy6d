@@ -20,7 +20,8 @@ Depends: adduser,
          ${misc:Depends},
          ${python3:Depends},
          ucf
-Pre-Depends: dpkg (>= 1.19.5)
+Pre-Depends: dpkg (>= 1.19.5),
+             ${misc:Pre-Depends}
 Suggests: python-mysqldb,
           python-psycopg2 
 Description: MAC address aware DHCPv6 server written in Python
