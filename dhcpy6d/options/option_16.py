@@ -1,8 +1,6 @@
-# encoding: utf8
-#
 # DHCPy6d DHCPv6 Daemon
 #
-# Copyright (C) 2009-2014 Henri Wahl <h.wahl@ifw-dresden.de>
+# Copyright (C) 2009-2020 Henri Wahl <h.wahl@ifw-dresden.de>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,5 +16,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 
-"""Module dhcpy6d"""
+from binascii import unhexlify
+from dhcpy6d.options import OptionTemplate
 
+
+class Option(OptionTemplate):
+    """
+    Option 16 Vendor Class
+    """
+    def apply(self, transaction=None, option=None, **kwargs):
+        transaction.vendor_class_en = int(option[0:8], 16)
+        transaction.vendor_class_data = unhexlify(option[12:]).decode()

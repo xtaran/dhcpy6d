@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 %:
-	dh $@ --with python2
+	dh $@ --with python2 --with systemd
 
 override_dh_auto_install:
 	dh_auto_install -- --install-scripts=/usr/sbin
@@ -12,6 +12,12 @@ override_dh_auto_install:
 override_dh_install:
 	dh_install
 	chmod 0644 debian/dhcpy6d/usr/share/dhcpy6d/default/dhcpy6d
+
+override_dh_systemd_enable:
+	dh_systemd_enable --no-enable
+
+override_dh_systemd_start:
+	dh_systemd_start --no-start
 
 # make -f debian/rules get-orig-source
 get-orig-source:

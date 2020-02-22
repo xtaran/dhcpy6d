@@ -1,5 +1,39 @@
 Changelog for dhcpy6d
 
+2018-10-25
+
+    added ignore_mac option to work with ppp interfaces
+
+2018-06-15
+
+    fix for MySQLdb.IntegrityError
+
+2018-06-11 0.7.1
+
+    fixed recycling of prefixes
+
+2018-04-30 0.7
+
+    added ntp_server option
+    added request limits
+    allow to inject prefix - e.g. changed prefix from ISP
+    optimized time requests
+    ignore unknown clients
+    fixes for prefix delegation
+
+2017-09-29 0.6
+
+    Prefix delegation (PD)
+    fixes
+
+2017-05-29 0.5
+
+    Allow using PostgreSQL database for volatile and config storage
+    Added category 'dns' for DNS-based IP-address retrieval
+    Reply CONFIRM requests with NotOnLink to force clients to get new address
+    Added --prefix option to be used for dynamic prefixes
+    Systemd integration
+
 2016-01-05 0.4.3
 
     autocommit to MySQL
@@ -10,7 +44,7 @@ Changelog for dhcpy6d
 2015-08-18 0.4.2
 
     fixed usage of fixed addresses in dhcpy6d-clients.conf
-    fixed DNSUpdate() to update default class clients too
+    fixed dns_update() to update default class clients too
     show warning if deprecated prefix_length is used in address definitions
     set socket to non-blocking to avoid freeze
     increase MAC/LLIP cache time from 30s to 300s because of laggy clients
