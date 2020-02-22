@@ -1,9 +1,9 @@
 #!/usr/bin/make -f
 %:
-	dh $@ --with python2 --with systemd
+	dh $@ --buildsystem=pybuild
 
 override_dh_auto_install:
-	dh_auto_install -- --install-scripts=/usr/sbin
+	dh_auto_install -- --install-args=--install-scripts=/usr/sbin
 	rm -f debian/dhcpy6d/usr/share/doc/dhcpy6d/LICENSE
 	rm -f debian/dhcpy6d/var/log/dhcpy6d.log
 	rm -f debian/dhcpy6d/usr/share/doc/dhcpy6d/*.[0-9]
@@ -13,11 +13,8 @@ override_dh_install:
 	dh_install
 	chmod 0644 debian/dhcpy6d/usr/share/dhcpy6d/default/dhcpy6d
 
-override_dh_systemd_enable:
-	dh_systemd_enable --no-enable
-
-override_dh_systemd_start:
-	dh_systemd_start --no-start
+override_dh_installsystemd:
+	dh_installsystemd --no-enable --no-start
 
 # make -f debian/rules get-orig-source
 get-orig-source:

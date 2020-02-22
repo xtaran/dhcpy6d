@@ -1,11 +1,11 @@
 Source: dhcpy6d
 Section: net
-X-Python-Version: >= 2.7
 Priority: optional
 Maintainer: Axel Beckert <abe@debian.org>
 Uploaders: Henri Wahl <h.wahl@ifw-dresden.de>
 Build-Depends: debhelper-compat (= 12),
-               python-all (>= 2.7.13-1~),
+               dh-sequence-python3,
+               python3
 Build-Depends-Indep: dh-python
 Homepage: https://dhcpy6d.ifw-dresden.de/
 Vcs-Git: https://github.com/HenriWahl/dhcpy6d.git -b debian

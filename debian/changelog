@@ -7,6 +7,14 @@ dhcpy6d (0.7.99-1) UNRELEASED; urgency=medium
   * Bump debhelper compatibility level to 12.
     + Build-depend on "debhelper-compat (= 12)" to replace debian/compat.
     + Drop undocumented build-dependency on dh-systemd, no more needed.
+     Drop "--with systemd" from debian/rules, no more needed either.
+  * Switch packaging to Python 3.
+    + Replace build-dependency on python3-all and "--with python2" with a
+      build-dependency on dh-sequence-python3, python3 and
+      "--buildsystem=pybuild".
+    + Replace override_dh_systemd_{enable,start} with
+      override_dh_installsystemd.
+    + Prepend dh_auto_install parameter with "--install-args=".
 
  -- Henri Wahl <h.wahl@ifw-dresden.de>  Tue, 05 Mar 2019 14:30:00 +0200
 
