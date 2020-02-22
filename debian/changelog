@@ -20,6 +20,7 @@ dhcpy6d (0.7.99-1) UNRELEASED; urgency=medium
     + Make sure modules are installed to /usr/lib/python3 and not
       /usr/lib/python3.x.
     + Remove all __pycache__ directories before building the .deb.
+    + Reenable scripts_custom in setup.py and rename it to dhcpy6.
   * Add "Pre-Depends: ${misc:Pre-Depends}" to fix lintian warning
     skip-systemd-native-flag-missing-pre-depends.
 

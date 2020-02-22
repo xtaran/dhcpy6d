@@ -1,0 +1,13 @@
+--- a/setup.py
++++ b/setup.py
+@@ -59,8 +59,8 @@
+     data_files_custom.append(('/usr/sbin', ['dhcpy6d']))
+     data_files_custom.append(('/etc/logrotate.d', ['etc/logrotate.d/dhcpy6d']))	
+ else:
+-    #scripts_custom = ['main.py']
+-    scripts_custom = ''
++    scripts_custom = ['main.py']
++    #scripts_custom = ''
+     entry_points = {'console_scripts': ['dhcpy6d = main']}
+ 
+ setup(name = 'dhcpy6d',
